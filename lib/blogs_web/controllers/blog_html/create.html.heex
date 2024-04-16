@@ -1,10 +1,9 @@
 <div>Your post form is below</div>
-<form action="" method="post">
-  <label>Title:</label>
-  <input type="text" name="post[title]" required>
+<.form :let={f} for = {@changeset} action={~p"/blogs/create"}>
+  <.label>Title</.label>
+  <.input field={f[:title]} />
+  <.label>Content</.label>
+  <.input field = {f[:content]}/>
   <br>
-  <label>Content:</label>
-  <textarea name="post[content]" rows="4" required></textarea>
-  <br>
-  <button type="submit">Create Post</button>
-</form>
+  <.button type = "submit">Submit</.button>
+</.form>

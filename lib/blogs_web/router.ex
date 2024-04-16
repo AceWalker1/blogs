@@ -19,8 +19,13 @@ defmodule BlogsWeb.Router do
 
     get "/", PageController, :home
 
-    resources "/blogs", BlogController
+    resources "/blogs", BlogController do
+      post "/create", BlogController, :create
+    end
+
   end
+
+  
 
   # Other scopes may use custom stacks.
   # scope "/api", BlogsWeb do

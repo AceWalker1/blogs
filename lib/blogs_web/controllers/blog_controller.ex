@@ -1,12 +1,13 @@
 defmodule BlogsWeb.BlogController do
   use BlogsWeb, :controller
+  alias Blogs.Articles
 
   def index(conn, _params) do
     render(conn, :index, layout: false)
   end
 
-  def create(conn, %{"blogs" => blog_params}) do
-    changeset = Blogs.Articles.changeset(%Blogs.Articles{}, blog_params)
+  def create(conn, %{"blogs" => params}) do
+    changeset = Articles.changeset(%Articles{}, params)
 
     case Blogs.Repo.insert(changeset) do
       {:ok, _blog} ->
